@@ -72,18 +72,39 @@
                                     <constraint firstAttribute="width" constant="600" id="wfV-Vp-SEE"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Piw-Ax-r8h">
+                                <rect key="frame" x="0.0" y="520" width="600" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cross" translatesAutoresizingMaskIntoConstraints="NO" id="bW9-pa-WVZ">
+                                        <rect key="frame" x="280.5" y="19" width="40" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="bxE-cB-abS"/>
+                                            <constraint firstAttribute="height" constant="42" id="zfr-at-O54"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bW9-pa-WVZ" firstAttribute="centerY" secondItem="Piw-Ax-r8h" secondAttribute="centerY" id="Jfm-7d-7sa"/>
+                                    <constraint firstItem="bW9-pa-WVZ" firstAttribute="centerX" secondItem="Piw-Ax-r8h" secondAttribute="centerX" id="QJJ-VW-bjD"/>
+                                    <constraint firstAttribute="height" constant="80" id="bbn-ut-Lei"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bPM-9C-Qw2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="2u6-Xd-Kha"/>
                             <constraint firstItem="hlC-QT-nlx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Ik6-jM-vFz"/>
+                            <constraint firstAttribute="trailing" secondItem="Piw-Ax-r8h" secondAttribute="trailing" id="QfV-z3-BJw"/>
                             <constraint firstItem="PWr-CX-a2D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="WvL-Ok-fOg"/>
                             <constraint firstItem="yn2-6j-OCx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="X8j-M8-Uf7"/>
                             <constraint firstItem="yn2-6j-OCx" firstAttribute="top" secondItem="hlC-QT-nlx" secondAttribute="bottom" constant="8" id="XQl-LJ-Xhy"/>
+                            <constraint firstItem="Piw-Ax-r8h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="adO-5G-nFI"/>
                             <constraint firstItem="hlC-QT-nlx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="el7-ft-XJW"/>
                             <constraint firstItem="PWr-CX-a2D" firstAttribute="leading" secondItem="hlC-QT-nlx" secondAttribute="trailing" constant="14" id="oM9-XH-Jc3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yn2-6j-OCx" secondAttribute="bottom" id="tny-dp-1PX"/>
                             <constraint firstItem="hlC-QT-nlx" firstAttribute="leading" secondItem="bPM-9C-Qw2" secondAttribute="trailing" constant="8" id="up4-HU-Ehs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Piw-Ax-r8h" secondAttribute="bottom" id="wj5-EI-li0"/>
                             <constraint firstAttribute="trailing" secondItem="yn2-6j-OCx" secondAttribute="trailing" id="wve-Qt-ZP1"/>
                         </constraints>
                     </view>
@@ -91,6 +112,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="imgCross" destination="bW9-pa-WVZ" id="N4j-ON-luW"/>
                         <outlet property="imgSetImage" destination="JAE-Oi-4Ys" id="F7M-iP-7YE"/>
                         <outlet property="viewImage" destination="yn2-6j-OCx" id="Ieo-v1-cYf"/>
                     </connections>
@@ -164,4 +186,7 @@
             <point key="canvasLocation" x="240.80000000000001" y="121.88905547226388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cross" width="42" height="42"/>
+    </resources>
 </document>

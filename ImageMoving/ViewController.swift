@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var viewImage: UIView!
     @IBOutlet weak var imgSetImage: UIImageView!
+    @IBOutlet weak var imgCross: UIImageView!
+
+    var isToRemove: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +57,86 @@ class ViewController: UIViewController {
     
     func didPan(gesture: UIPanGestureRecognizer) {
         
-        if gesture.state == .began || gesture.state == .changed {
+        if gesture.state == .began
+        {
+            UIView.animate(withDuration: 0.25, animations: {
+                gesture.view?.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+            })
+            
+        }else if gesture.state == .changed {
             
             let translation = gesture.translation(in: self.viewImage)
             // note: 'view' is optional and need to be unwrapped
-            gesture.view!.center = CGPoint(x: gesture.view!.center.x + translation.x, y: gesture.view!.center.y + translation.y)
+            
+            if !isToRemove
+            {
+                gesture.view!.center = CGPoint(x: gesture.view!.center.x + translation.x, y: gesture.view!.center.y + translation.y)
+            }
+            
             gesture.setTranslation(CGPoint.zero, in: self.viewImage)
-        }
+            
+            checkReachedToBottom(viewDragging: gesture.view, gesture: gesture)
+
+        }else {
         
+            if isToRemove
+            {
+                isToRemove = false
+                UIView.animate(withDuration: 0.25, animations: {
+                    gesture.view?.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+                    self.imgCross?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+
+                }, completion: { (isFinished) in
+                    gesture.view?.removeFromSuperview()
+                })
+                
+            }else
+            {
+                UIView.animate(withDuration: 0.25, animations: {
+                    gesture.view?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+                })
+            }
+        }
+    }
+    
+    
+    func checkReachedToBottom(viewDragging: UIView?, gesture: UIGestureRecognizer) {
+        
+        if viewDragging != nil {
+            
+            var viewCenter: CGPoint = (viewDragging?.center)!
+            viewCenter.y += (viewDragging?.frame.size.height)!/2
+            
+            let padding: CGFloat = 80.0
+            
+            let positionY = gesture.location(in: viewImage).y + padding
+            
+            if positionY >= viewImage.frame.size.height
+            {
+                let centerPointForViewDragging: CGPoint = CGPoint.init(x: viewImage.frame.size.width/2, y: viewImage.frame.size.height - 40)
+                
+                if !isToRemove
+                {
+                    isToRemove = true
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.imgCross?.transform = CGAffineTransform.init(scaleX: 1.4, y: 1.4)
+                        viewDragging?.center = centerPointForViewDragging
+                    })
+                }
+                
+            }else {
+
+                if isToRemove
+                {
+                    isToRemove = false
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.imgCross?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+                        viewDragging?.center = gesture.location(in: self.viewImage)
+                    })
+                }
+            }
+            
+        }
     }
     
     
