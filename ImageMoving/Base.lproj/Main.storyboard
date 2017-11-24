@@ -193,6 +193,7 @@
                             <constraint firstItem="7pM-QG-J00" firstAttribute="centerX" secondItem="6ZA-4r-cwR" secondAttribute="leading" multiplier="128:108" identifier="1" id="zih-bF-STD"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqN-oE-NgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,11 +208,11 @@
                         <viewControllerLayoutGuide type="bottom" id="8M1-8D-qm2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Z6X-fj-b3P">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-ca-29P">
-                                <rect key="frame" x="53" y="84" width="494" height="481"/>
+                                <rect key="frame" x="49" y="84" width="277" height="548"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vin-au-Wwf">
                                 <rect key="frame" x="10" y="28" width="46" height="43"/>
@@ -236,7 +237,6 @@
                         </constraints>
                     </view>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="imgImageShow" destination="8dw-ca-29P" id="Elz-Pg-DcF"/>
                     </connections>
