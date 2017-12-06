@@ -132,6 +132,24 @@ extension UIView {
 
 }
 
+
+extension UIImageView {
+    
+    func loadImageFromUrl(url: String) {
+        
+        var imgLink = URL.init(string:"\(url)")
+        if !url.contains("http://") {
+            imgLink = URL.init(string:"\(BASE_IMAGE_URL)\(url)")
+        }
+        self.kf.setImage(with:imgLink,
+                         placeholder:  UIImage.init(named: "ezgif.com-logo.png"),
+                         options: [.transition(.fade(1))],
+                         progressBlock: nil,
+                         completionHandler: nil)
+    }
+}
+
+
 extension UITableView {
     
     
